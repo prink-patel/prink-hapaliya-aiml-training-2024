@@ -2,16 +2,16 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 
 var=0
-def increase(num):
+def increase():
     global var
-    for i in range(num):
+    while True:
         var= var+5
         print(var)
         time.sleep(0.1)
 
-def decrease(num):
+def decrease():
     global var
-    for i in range(num):
+    while True:
         var=var-2
         print(var)
         time.sleep(0.1)
@@ -19,5 +19,5 @@ def decrease(num):
 
 
 with ThreadPoolExecutor() as executor:
-    f1 = executor.submit(increase,5)
+    f1 = executor.submit(increase)
     f2 = executor.submit(decrease,5)  
