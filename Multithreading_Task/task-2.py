@@ -5,18 +5,18 @@ from threading import Thread, Lock
 from time import sleep
 
 var=0
-def increase(lock,num):
+def increase(lock):
     global var
-    for i in range(num):
+    while True:
         lock.acquire()
         var= var+5
         print(var)
         lock.release()
         sleep(0.1)
 
-def decrease(lock,num):
+def decrease(lock):
     global var
-    for i in range(num):
+    while True:
         lock.acquire()        
         var=var-2
         print(var)
@@ -24,8 +24,8 @@ def decrease(lock,num):
         sleep(0.1)
 
 lock = Lock()
-t1 = Thread(target=increase, args=(lock,5))
-t2 = Thread(target=decrease, args=(lock,5))
+t1 = Thread(target=increase, args=(lock,))
+t2 = Thread(target=decrease, args=(lock))
 
 t1.start()
 t2.start()
