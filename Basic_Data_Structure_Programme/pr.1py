@@ -1,0 +1,10 @@
+# Slice list into 3 equal chunks and reverse each chunk
+
+# Sample:  [11, 45, 8, 23, 14, 12, 78, 45, 89]
+
+# Result: [[8, 45, 11], [12, 14, 23], [89, 45, 78]]
+
+a=[11, 45, 8, 23, 14, 12, 78, 45, 89]
+b=int(len(a)/3)     #round(len(a)/3)
+result = [[a[(j*3)+i] for i in range(2,-1,-1)] for j in range(b)]
+print(result)
