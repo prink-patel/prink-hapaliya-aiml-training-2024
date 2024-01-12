@@ -25,6 +25,7 @@ def hello():
               'blood group':request.form.get("blood_group")
 
               }
+        db.insert_one(data)
         return "Successfull submited"
 
 if __name__=='__main__':
