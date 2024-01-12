@@ -1,0 +1,34 @@
+This is an INFO message
+This is a WARNING message
+This is an ERROR message
+This is a CRITICAL message
+This is an INFO message
+This is a WARNING message
+This is an ERROR message
+This is a CRITICAL message
+Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/wot-prink/Documents/demo/flask/loggingFlask.py", line 18, in index
+    return f"{abcd}"
+NameError: name 'abcd' is not defined
+An exception occurred during a request.
+Traceback (most recent call last):
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wot-prink/.local/lib/python3.8/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/wot-prink/Documents/demo/flask/loggingFlask.py", line 18, in index
+    return f"{abcd}"
+NameError: name 'abcd' is not defined
