@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">TODO App</h1>
+
+    <!-- Add Task Form -->
+    <form id="addTaskForm" action="{{ url_for('add_task') }}" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="taskTitle">Task Title:</label>
+                <input type="text" class="form-control" id="taskTitle" name="taskTitle" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="taskDescription">Task Description:</label>
+                <textarea class="form-control" id="taskDescription" name="taskDescription" required></textarea>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="dueDateTime">Due Date and Time:</label>
+                <input type="datetime-local" class="form-control" id="dueDateTime" name="dueDateTime" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+
+    <hr>
+
+    <!-- Task List Table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task Title</th>
+                <th>Task Description</th>
+                <th>Due Date and Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task['Task_title'] }}</td>
+                <td>{{ task['Task_description'] }}</td>
+                <td>{{ task['due_date_time'] }}</td>
+                <td>
+                    <form action="{{ url_for('delete_task',task_id=task['_id']) }}" method="get">
+                        <button type="Delete" class="btn btn-danger" name="Delete">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ url_for('edit_task',task_id=task['_id']) }}" method="get">
+                        <button type="Edit" class="btn btn-secondary" name="Edit_task">Edit task</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                
+                    <td colspan="3">
+                        {% if task.get('status') == 'done' %}
+                        <button type="button" class="btn btn-success" disabled>Done</button>
+                        {% else %}
+                        <button type="button" class="btn btn-secondary" disabled>Not Done</button>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {% if task.get('status') != 'done' %}
+                        <form action="{{ url_for('mark_as_done', task_id=task['_id']) }}" method="get">
+                            <button type="submit" class="btn btn-primary">Mark as Done</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </form>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function status(task){
+        var status_val=document.getElementById('statusChange')
+        console.log(status_val)
+        console.log(task)   
+        if (status_val.innerHTML=="Not Done"){
+            status_val.innerHTML="Done"
+        }
+        else if(status_val.innerHTML=="Done"){
+            status_val.innerHTML="Not Done"
+        }
+        console.log(status_val.innerHTML)
+    }
+
+</script>
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
