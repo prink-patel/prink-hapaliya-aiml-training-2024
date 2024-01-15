@@ -1,0 +1,14 @@
+2024-01-15 12:27:36,161 - INFO - Task status updated: 65a4d6d58451b57bcfc64de7, New Status: done
+2024-01-15 12:27:46,574 - INFO - Task deleted: 65a4d00a16838048f4234ff7, Title: 232, Description: dfd, Due Date: 0432-03-04T04:34
+2024-01-15 12:31:22,271 - INFO - Home page accessed.
+2024-01-15 12:31:29,604 - INFO - Task added: Title: fddffs, Description: dsfdsf, Due Date: 2024-01-15T12:31
+2024-01-15 12:31:29,613 - INFO - Home page accessed.
+2024-01-15 12:31:40,070 - INFO - Task deleted: 65a4d6d58451b57bcfc64de7, Title: fdfs, Description: fsadfd, Due Date: 243243-03-31T04:34
+2024-01-15 12:31:40,080 - INFO - Home page accessed.
+2024-01-15 12:31:46,706 - INFO - Task status updated: 65a4d77568b3029a26f90774, New Status: done
+2024-01-15 12:31:46,716 - INFO - Home page accessed.
+2024-01-15 12:32:07,458 - INFO - Task edited: 65a4d8492fb3788f226fd17f, New Title: fddffsfdfs, New Description: dfsadfd, New Due Date: 2024-01-15T12:31
+2024-01-15 12:32:07,469 - INFO - Home page accessed.
+2024-01-15 12:48:14,319 - INFO - Task status updated: 65a4d8492fb3788f226fd17f, New Status: done
+2024-01-15 12:48:22,540 - INFO - Task deleted: 65a4d8492fb3788f226fd17f, Title: fddffsfdfs, Description: dfsadfd, Due Date: 2024-01-15T12:31
+2024-01-15 12:48:28,060 - INFO - Task edited: 65a4d77568b3029a26f90774, New Title: rewqr, New Description: fdfa, New Due Date: 42344-03-04T23:34
