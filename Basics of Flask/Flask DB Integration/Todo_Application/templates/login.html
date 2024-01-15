@@ -1,0 +1,43 @@
+{% macro render_input(lable,inpname,inptype="text") %}
+   <tr>
+      <td>{{lable}}</td>
+      <td>
+         <input type={{inptype}} name="{{inpname}}"/>
+      </td>
+
+   </tr>
+
+{% endmacro %}
+
+
+<html>
+   <body>
+      <table>
+         {{render_input("Name","username")}}
+      </table>
+      <form action = "http://localhost:5000/login" method = "post">
+         <p>Enter Name:</p>
+         <p><input type = "text" name = "nm" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+      <!-- {% block content %}
+      
+         <h1>hello prink bro</h1>
+
+      {% endblock %} -->
+
+      <!-- {% if name == "prink" %}
+         <h1>welcome to the {{name}} sir</h1>
+      {% elif name != "prink" %}
+         <h1>chal chal {{name}}</h1>
+      {% else %}
+         <h1></h1>
+      
+      {%endif%}
+      <ul>
+         {% for i in he %}
+            <li>{{i}}</li>
+         {% endfor %}
+      </ul> -->
+   </body>
+</html>
