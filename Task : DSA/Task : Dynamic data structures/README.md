@@ -1,4 +1,4 @@
-	merge_sort:
+merge_sort:
 	
 	def mergeSort(arr):
 	    if len(arr) <= 1:
@@ -41,7 +41,7 @@
 	sorted_arr = mergeSort(arr)
 	print("\nSorted array is", sorted_arr)
 	
-	heap_sort:
+heap_sort:
 	
 	
 	def heapify(arr, N, i):
