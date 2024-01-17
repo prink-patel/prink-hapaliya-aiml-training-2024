@@ -1,9 +1,0 @@
-from statistics import mode
-t = int(input())
-
-while t != 0:
-    n = int(input())
-    d = list(map(int, input().split()))
-    t-=1
-    a=mode(d)
-    print(n - d.count(a))
