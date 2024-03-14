@@ -32,13 +32,6 @@ def find_slop(lines_list):
 # Read image
 image = cv2.imread('hex1.png')
 
-
-
-
-
-
-
-
 height = image.shape[0]
 width = image.shape[1]
 # Convert image to grayscale
@@ -66,10 +59,6 @@ for points in lines:
 
 
 
-
-
-lines_list
-
 list_hex=np.array([(58, 0),(0, 106),(58, 208),(181, 208),(240, 106),(181, 0)])
 
 mask = np.zeros(image.shape, dtype=np.uint8)
@@ -84,14 +73,10 @@ cv2.fillPoly(mask, [list_hex], ignore_mask_color)
 marked_image = cv2.bitwise_and(image, image, mask=mask[:, :, 0])
 
 
-
-
 a,b=lines_list[4][0][0],lines_list[4][1][1]
 dic_slop=dic(lines_list)
 
 slop=find_slop(lines_list[4])
-
-
 
 gray = cv2.cvtColor(marked_image,cv2.COLOR_BGR2GRAY)
 output = np.zeros((height*3,width*3,image.shape[2]),np.uint8)
