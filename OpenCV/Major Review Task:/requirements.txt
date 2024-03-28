@@ -1,4 +1,0 @@
-numpy
-opencv‎
-shapely
-mongodb
