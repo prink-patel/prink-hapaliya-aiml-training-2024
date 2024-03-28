@@ -1,27 +1,40 @@
-import sys
-
-sys.path.insert(
-    1,
-    "/home/wot-prink/Downloads/aruco_tracking-20240223T114103Z-001/aruco_tracking/entities",
-)
-from VideoObject import *
-import cv2
-
+from entities.VideoObject import *
+import threading
+import time
 
 class VideoManager:
+    def __init__(self, url, json_dic) -> None:
+        self.url = url
+        self.json_dic = json_dic
+        self.camera_dic = {}
 
-    def __init__(self, video_dic):
-        self.video_dic = video_dic
-        print("working -1")
+    def run(self):
+        print("video_manager run")
 
-        for video_data in video_dic:
-            self.video_dic[video_data]["object"] = VideoObject(
-                video_data, video_dic[video_data], self.database
+        for camera_id in self.url:
+            self.camera_dic[camera_id] = {}
+            self.camera_dic[camera_id]["object"] = VideoObject(
+                camera_id, self.url[camera_id], self.json_dic[camera_id]
             )
-        for video_data in video_dic:
-            self.video_dic[video_data]["thread"] = threading.Thread(
-                target=self.video_dic[video_data]["object"].do
+        for camera_id in self.url:
+            self.camera_dic[camera_id]["thread"] = threading.Thread(
+                target=self.camera_dic[camera_id]["object"].run
             )
-            self.video_dic[video_data]["thread"].start()
+            self.camera_dic[camera_id]["thread"].start()
+        
+        
+        self.display_all()
+        
+        
+        
+    def display_all(self):
+        time.sleep(1)
+        while True:
+            for object in self.camera_dic:
 
-            print("working -2")
+                cv2.namedWindow(object, cv2.WINDOW_AUTOSIZE)
+
+                image = self.camera_dic[object]["object"].writer_queue.get()
+                image = cv2.resize(image, (800, 650))
+                cv2.imshow(object, image)
+            cv2.waitKey(40)
