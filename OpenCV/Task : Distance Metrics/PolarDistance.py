@@ -35,4 +35,4 @@ class PolarDistance:
         second_length=second_length_object.find_distance()
         # print(first_length,second_length,self.two_points_theta,math.cos(self.two_points_theta))
         polar_distance = math.sqrt(first_length**2+second_length**2-(2*first_length*second_length*math.cos(self.two_points_theta)))
-        print(f'Polar Distance  is {polar_distance}')
+        logger.info(f"Polar Distance  is {polar_distance}")
