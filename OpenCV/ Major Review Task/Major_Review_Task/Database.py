@@ -16,3 +16,4 @@ class DBManager:
         self.mycollection.insert_one(data)
 
 
+
