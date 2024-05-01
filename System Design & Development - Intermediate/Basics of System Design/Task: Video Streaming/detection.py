@@ -16,12 +16,10 @@ face_detection = FaceDetection()
 @socketio.on("send_frame")
 def detect(data):
     image = data["frame"]
-    # print(type(image))
     image = base64.b64decode(image.split(",")[1])
     image = np.frombuffer(image, np.uint8)
     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
     detect_frame = face_detection.detect_face(image)
-    # print(detect_frame)
     send_detect_frame = base64.b64encode(cv2.imencode(".jpg", detect_frame)[1]).decode()
     emit("send_frame_js", {"frame": send_detect_frame})
 

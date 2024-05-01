@@ -15,7 +15,6 @@ def login():
 def index():
     return render_template("live_stream.html")
 
-
 @app.route("/live_stream", methods=["GET", "POST"])
 def live_stream():
     if request.method == "POST":
