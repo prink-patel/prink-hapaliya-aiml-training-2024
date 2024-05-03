@@ -30,8 +30,8 @@ class ConsumerClass:
     
     # connect rabbitmq
     def connect_rabbitmq(self):
-        logger.info("Connecting to RabbitMQ")
         try:
+            logger.info("Connecting to RabbitMQ")
             credential = PlainCredentials(username=RABBIT_USERNAME, password=RABBIT_PASSWORD)
             parameters = pika.ConnectionParameters(
                 host=RABBIT_HOST, port=PORT, credentials=credential

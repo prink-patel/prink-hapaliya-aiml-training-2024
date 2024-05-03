@@ -4,8 +4,8 @@ logger = logging.getLogger("Streaming_data")
 
 class Database:
     def __init__(self) -> None:
-        logger.info("Database connected")
         try:
+            logger.info("Database connected")
             self.my_client = MongoClient('mongodb://localhost:27017')
             self.my_db = self.my_client['database']
         except:
