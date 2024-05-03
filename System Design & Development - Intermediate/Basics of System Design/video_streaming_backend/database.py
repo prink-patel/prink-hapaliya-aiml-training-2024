@@ -13,6 +13,12 @@ class Database:
         
     # enter values in database
     def enter(self,name,data):
+        """enter values in database
+
+        Args:
+            name (str): database name
+            data (dict): dictionary values to store bounding box, time, camera id, image path
+        """
         try:
             logger.info("Data inserted")
             self.my_collection = self.my_db[name]

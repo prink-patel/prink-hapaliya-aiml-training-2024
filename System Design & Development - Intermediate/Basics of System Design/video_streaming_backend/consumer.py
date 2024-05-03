@@ -30,6 +30,8 @@ class ConsumerClass:
     
     # connect rabbitmq
     def connect_rabbitmq(self):
+        """connect rabbitmq server using this method
+        """
         try:
             logger.info("Connecting to RabbitMQ")
             credential = PlainCredentials(username=RABBIT_USERNAME, password=RABBIT_PASSWORD)
@@ -43,6 +45,8 @@ class ConsumerClass:
             
     # create channel
     def create_channel(self):
+        """create channel and bind queue than this queue values get and store in database 
+        """
         logger.info("Creating channel")
         channel = self.connection.channel()
         channel.exchange_declare(

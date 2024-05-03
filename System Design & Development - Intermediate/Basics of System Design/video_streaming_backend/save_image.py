@@ -14,6 +14,14 @@ class SaveImage:
 
     #decode image from base64
     def run(self, img_str):
+        """decode str image type to nd array and save image 
+
+        Args:
+            img_str (str): image in base64 convert to this in nd.array 
+
+        Returns:
+            str: image path
+        """
         try:
             logger.info("Image saved run method started")
             self.img_str = img_str
@@ -26,6 +34,11 @@ class SaveImage:
 
     # save image
     def save_image(self):
+        """save image in image folder
+
+        Returns:
+            str: image path
+        """
         logger.info("Image saved")
         img_path = os.path.join(r"demo", r"images", f"{self.count}_{str(uuid.uuid1())}.jpg")
         self.count = self.count + 1
