@@ -7,10 +7,11 @@ logging.basicConfig(
     filemode="w",
 )
 logger = logging.getLogger("Streaming_data")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.CRITICAL)
 
 class App:
     def __init__(self) -> None:
+        logger.info("Application started")
         self.consumer = ConsumerClass()
 
     def run(self):

@@ -19,6 +19,7 @@ logger = logging.getLogger("Streaming_data")
 
 class ConsumerClass:
     def __init__(self) -> None:
+        logger.info("Consumer started")
         self.db_obj = Database() #create database object
         self.save_imag = SaveImage() #create save image object
     
@@ -29,6 +30,7 @@ class ConsumerClass:
     
     # connect rabbitmq
     def connect_rabbitmq(self):
+        logger.info("Connecting to RabbitMQ")
         try:
             credential = PlainCredentials(username=RABBIT_USERNAME, password=RABBIT_PASSWORD)
             parameters = pika.ConnectionParameters(
@@ -41,6 +43,7 @@ class ConsumerClass:
             
     # create channel
     def create_channel(self):
+        logger.info("Creating channel")
         channel = self.connection.channel()
         channel.exchange_declare(
             exchange=EXCHANGE_NAME, exchange_type=ExchangeType.direct

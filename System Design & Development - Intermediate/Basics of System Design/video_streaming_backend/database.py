@@ -4,6 +4,7 @@ logger = logging.getLogger("Streaming_data")
 
 class Database:
     def __init__(self) -> None:
+        logger.info("Database connected")
         try:
             self.my_client = MongoClient('mongodb://localhost:27017')
             self.my_db = self.my_client['database']
@@ -13,6 +14,7 @@ class Database:
     # enter values in database
     def enter(self,name,data):
         try:
+            logger.info("Data inserted")
             self.my_collection = self.my_db[name]
             self.my_collection.insert_one(data)
         except:
